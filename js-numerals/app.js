@@ -47,11 +47,17 @@ btn.addEventListener("click", function () {
 });
 
 function conversion(number) {
-  console.log(tens(number));
+  console.log(hundreds(number));
 }
 
 function tens(num) {
   if (num == 0) return "";
   if (num < 20) return digits[num];
-  return doubleDigits[parseInt(num / 10)] + digits[num % 10];
+  return doubleDigits[parseInt(num / 10)] + "-" + digits[num % 10];
+}
+
+function hundreds(num) {
+  if (num == 0) return "";
+  if (num < 100) return tens(num % 100);
+  return digits[parseInt(num / 100)] + " hundred " + tens(num % 100);
 }
