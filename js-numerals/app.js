@@ -1,3 +1,8 @@
+// Ruleset: https://www.grammarbook.com/numbers/numbers.asp
+// Hyphenate all compound numbers from twenty-one through ninety-nine.
+// When writing out a number of three or more digits, the word and is not necessary.
+// The simplest way to express large numbers is usually best.
+
 const num = document.querySelector(".number");
 const btn = document.querySelector(".btn");
 
@@ -35,20 +40,17 @@ const doubleDigits = {
   9: "ninety",
 };
 const aboveHundred = {
-  1: "Thousand ",
-  2: "Million ",
-  3: "Billion ",
-  4: "Trillion ",
+  0: "",
+  1: "thousand",
+  2: "million",
+  3: "billion",
+  4: "trillion",
 };
 
 btn.addEventListener("click", function () {
   let number = num.value;
-  conversion(number);
+  let writtenNumber = conversion(number);
 });
-
-function conversion(number) {
-  console.log(hundreds(number));
-}
 
 function tens(num) {
   if (num == 0) return "";
@@ -60,4 +62,21 @@ function hundreds(num) {
   if (num == 0) return "";
   if (num < 100) return tens(num % 100);
   return digits[parseInt(num / 100)] + " hundred " + tens(num % 100);
+}
+
+function conversion(num) {
+  if (num == 0) return "Zero";
+  let c = 0;
+  let wrd = "";
+  while (num > 0) {
+    h = num % 1000;
+    if (h != 0) {
+      wrd = `${hundreds(h)} ${aboveHundred[c]} ${wrd}`;
+    }
+    num = parseInt(num / 1000);
+    c = c + 1;
+  }
+
+  console.log(wrd);
+  return wrd;
 }
