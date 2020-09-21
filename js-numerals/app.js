@@ -92,6 +92,7 @@ function conversion(num) {
   if (num == 0) return "zero";
   let c = 0;
   let wrd = "";
+  let h;
   while (num > 0) {
     h = num % 1000;
     if (h != 0) {
@@ -100,7 +101,6 @@ function conversion(num) {
     num = parseInt(num / 1000);
     c = c + 1;
   }
-  return wrd;
+  return wrd.trim();
 }
 
-app();

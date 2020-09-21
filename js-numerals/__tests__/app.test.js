@@ -9,9 +9,9 @@ test('whatever', () => {
 
   const num = document.querySelector('.input-number')
   const btn = document.querySelector('.btn')
-  inp.value = 10;
+  num.value = 10;
   btn.addEventListener('click', function() {
-    convertNumber(inp.value)
+    convertNumber(num.value)
   })
 
   expect(convertNumber(10)).toBe("ten");
