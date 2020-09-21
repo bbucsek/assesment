@@ -50,15 +50,20 @@ function app() {
 
   btn.addEventListener("click", function () {
     let number = num.value;
-    let numberList = Array.from(number.toString()).map(Number);
-    let writtenNumber;
-    if (number < 10000 && numberList[1] != 0) {
-      writtenNumber = getRuleSixResult(numberList)
-    } else {
-      writtenNumber = conversion(number);
-    }
-    console.log(writtenNumber)
+    let numberString = convertNumber(number);
+    console.log(numberString)
   });
+}
+
+function convertNumber(number) {
+  let numberList = Array.from(number.toString()).map(Number);
+  let writtenNumber;
+  if (number < 10000 && numberList[1] != 0) {
+    writtenNumber = getRuleSixResult(numberList)
+  } else {
+    writtenNumber = conversion(number);
+  }
+  return writtenNumber;
 }
 
 function getRuleSixResult(numberList) {
@@ -97,6 +102,3 @@ function conversion(num) {
 }
 
 app();
-
-module.exports = conversion
-module.exports = getRuleSixResult
