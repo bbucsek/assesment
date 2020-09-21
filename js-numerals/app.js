@@ -55,6 +55,7 @@ function app() {
       getRuleSixResult(numberList)
     }
     let writtenNumber = conversion(number);
+    console.log(writtenNumber)
 
   });
 
@@ -88,6 +89,8 @@ function app() {
       }
       num = parseInt(num / 1000);
       c = c + 1;
+      console.log(num)
+      console.log("c=" + c)
     }
     return wrd;
   }
