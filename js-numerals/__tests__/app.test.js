@@ -15,5 +15,7 @@ test('whatever', () => {
   })
 
   expect(convertNumber(10)).toBe("ten");
+  expect(convertNumber(11)).toBe("eleven");
+  expect(convertNumber(1000)).toBe("one thousand");
 
 });
