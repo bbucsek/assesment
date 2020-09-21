@@ -42,12 +42,12 @@ const aboveHundred = {
   2: "million",
   3: "billion",
   4: "trillion",
+  5: "quadrillion",
 };
 
 function app() {
   const num = document.querySelector(".input-number");
   const btn = document.querySelector(".btn");
-  //const resultContainer = document.querySelector('.result-container')
 
   btn.addEventListener("click", function () {
     let number = num.value;
@@ -57,7 +57,7 @@ function app() {
   });
 }
 
-function convertNumber(number) {
+export default function convertNumber(number) {
   let numberList = Array.from(number.toString()).map(Number);
   let writtenNumber;
   if (number < 10000 && number > 1000 && numberList[1] != 0) {
@@ -89,7 +89,7 @@ function hundreds(num) {
 }
 
 function conversion(num) {
-  if (num == 0) return "Zero";
+  if (num == 0) return "zero";
   let c = 0;
   let wrd = "";
   while (num > 0) {
