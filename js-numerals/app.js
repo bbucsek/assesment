@@ -51,50 +51,52 @@ function app() {
   btn.addEventListener("click", function () {
     let number = num.value;
     let numberList = Array.from(number.toString()).map(Number);
+    let writtenNumber;
     if (number < 10000 && numberList[1] != 0) {
-      getRuleSixResult(numberList)
+      writtenNumber = getRuleSixResult(numberList)
+    } else {
+      writtenNumber = conversion(number);
     }
-    let writtenNumber = conversion(number);
     console.log(writtenNumber)
-
   });
+}
 
-  function getRuleSixResult(numberList) {
-    let firstTwo = `${numberList[0]}${numberList[1]}`
-    let lastTwo = `${numberList[2]}${numberList[3]}`
-    let writtenNumber = `${tens(firstTwo)} hundred ${tens(lastTwo)}`
-    console.log(writtenNumber)
-  }
+function getRuleSixResult(numberList) {
+  let firstTwo = `${numberList[0]}${numberList[1]}`
+  let lastTwo = `${numberList[2]}${numberList[3]}`
+  let writtenNumber = `${tens(firstTwo)} hundred ${tens(lastTwo)}`
+  return writtenNumber;
+}
 
-  function tens(num) {
-    if (num == 0) return "";
-    if (num < 20) return digits[num];
-    return doubleDigits[parseInt(num / 10)] + "-" + digits[num % 10];
-  }
+function tens(num) {
+  if (num == 0) return "";
+  if (num < 20) return digits[num];
+  let lastDigits = digits[num % 10] == 0 ? "" : "-" + digits[num % 10]
+  return doubleDigits[parseInt(num / 10)] + lastDigits;
+}
 
-  function hundreds(num) {
-    if (num == 0) return "";
-    if (num < 100) return tens(num % 100);
-    return digits[parseInt(num / 100)] + " hundred " + tens(num % 100);
-  }
+function hundreds(num) {
+  if (num == 0) return "";
+  if (num < 100) return tens(num % 100);
+  return digits[parseInt(num / 100)] + " hundred " + tens(num % 100);
+}
 
-  function conversion(num) {
-    if (num == 0) return "Zero";
-    let c = 0;
-    let wrd = "";
-    while (num > 0) {
-      h = num % 1000;
-      if (h != 0) {
-        wrd = `${hundreds(h)} ${aboveHundred[c]} ${wrd}`;
-      }
-      num = parseInt(num / 1000);
-      c = c + 1;
-      console.log(num)
-      console.log("c=" + c)
+function conversion(num) {
+  if (num == 0) return "Zero";
+  let c = 0;
+  let wrd = "";
+  while (num > 0) {
+    h = num % 1000;
+    if (h != 0) {
+      wrd = `${hundreds(h)} ${aboveHundred[c]} ${wrd}`;
     }
-    return wrd;
+    num = parseInt(num / 1000);
+    c = c + 1;
   }
-
+  return wrd;
 }
 
 app();
+
+module.exports = conversion
+module.exports = getRuleSixResult
