@@ -45,21 +45,23 @@ const aboveHundred = {
 };
 
 function app() {
-  const num = document.querySelector(".number");
+  const num = document.querySelector(".input-number");
   const btn = document.querySelector(".btn");
+  //const resultContainer = document.querySelector('.result-container')
 
   btn.addEventListener("click", function () {
     let number = num.value;
     let numberString = convertNumber(number);
-    console.log(numberString)
+    console.log(numberString);
+    alert(numberString);
   });
 }
 
 function convertNumber(number) {
   let numberList = Array.from(number.toString()).map(Number);
   let writtenNumber;
-  if (number < 10000 && numberList[1] != 0) {
-    writtenNumber = getRuleSixResult(numberList)
+  if (number < 10000 && number > 1000 && numberList[1] != 0) {
+    writtenNumber = getRuleSixResult(numberList);
   } else {
     writtenNumber = conversion(number);
   }
@@ -67,16 +69,16 @@ function convertNumber(number) {
 }
 
 function getRuleSixResult(numberList) {
-  let firstTwo = `${numberList[0]}${numberList[1]}`
-  let lastTwo = `${numberList[2]}${numberList[3]}`
-  let writtenNumber = `${tens(firstTwo)} hundred ${tens(lastTwo)}`
+  let firstTwo = `${numberList[0]}${numberList[1]}`;
+  let lastTwo = parseInt(`${numberList[2]}${numberList[3]}`); //parseInt to avoid passing numbers like 01
+  let writtenNumber = `${tens(firstTwo)} hundred ${tens(lastTwo)}`;
   return writtenNumber;
 }
 
 function tens(num) {
   if (num == 0) return "";
   if (num < 20) return digits[num];
-  let lastDigits = digits[num % 10] == 0 ? "" : "-" + digits[num % 10]
+  let lastDigits = digits[num % 10] == 0 ? "" : "-" + digits[num % 10];
   return doubleDigits[parseInt(num / 10)] + lastDigits;
 }
 
