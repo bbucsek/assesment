@@ -72,7 +72,7 @@ function getRuleSixResult(numberList) {
   let firstTwo = `${numberList[0]}${numberList[1]}`;
   let lastTwo = parseInt(`${numberList[2]}${numberList[3]}`); //parseInt to avoid passing numbers like 01
   let writtenNumber = `${tens(firstTwo)} hundred ${tens(lastTwo)}`;
-  return writtenNumber;
+  return writtenNumber.trim();
 }
 
 function tens(num) {
