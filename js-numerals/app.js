@@ -67,7 +67,7 @@ function addNumberToDom(number, numberString) {
   container.insertBefore(newP, container.firstChild);
 }
 
-function convertNumber(number) {
+export function convertNumber(number) {
   let numberList = Array.from(number.toString()).map(Number);
   let writtenNumber;
   if (number < 10000 && number > 1000 && numberList[1] != 0) {

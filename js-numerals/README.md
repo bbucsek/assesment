@@ -1,5 +1,7 @@
 # Start this application as server, for example "python3 -m http.server 8080"
 
+# Test with npm test command
+
 # JavaScript/Front-end Developer - Exercise 1
 
 ## Instructions

@@ -1,4 +1,6 @@
-import convertNumber from '../app'
+import {
+  convertNumber
+} from '../app'
 
 //simple tests
 
@@ -48,6 +50,10 @@ test('1648264559103 to be equal to: one trillion six hundred forty-eight billion
   expect(convertNumber(1648264559103)).toBe("one trillion six hundred forty-eight billion two hundred sixty-four million five hundred fifty-nine thousand one hundred three");
 });
 
-test('9901 to be equal to: ninety-nine hundred one', () => {
-  expect(convertNumber(9901)).toBe("ninety-nine hundred one");
+test('9386999945799998 to be equal to: nine quadrillion three hundred eighty-six trillion nine hundred ninety-nine billion nine hundred forty-five million seven hundred ninety-nine thousand nine hundred ninety-eight', () => {
+  expect(convertNumber(9386999945799998)).toBe("nine quadrillion three hundred eighty-six trillion nine hundred ninety-nine billion nine hundred forty-five million seven hundred ninety-nine thousand nine hundred ninety-eight");
+});
+
+test('7536859245794298 to be equal to: seven quadrillion five hundred thirty-six trillion eight hundred fifty-nine billion two hundred forty-five million seven hundred ninety-four thousand two hundred ninety-eight', () => {
+  expect(convertNumber(7536859245794298)).toBe("seven quadrillion five hundred thirty-six trillion eight hundred fifty-nine billion two hundred forty-five million seven hundred ninety-four thousand two hundred ninety-eight");
 });
