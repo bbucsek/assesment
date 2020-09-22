@@ -50,7 +50,7 @@ export default function main() {
   const btn = document.querySelector(".btn");
 
   btn.addEventListener("click", function () {
-    let number = num.value;
+    let number = parseInt(num.value);
     if (number >= 9999999999999999) {
       alert("please add smaller number")
       return
