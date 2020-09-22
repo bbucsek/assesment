@@ -52,7 +52,6 @@ export default function main() {
   btn.addEventListener("click", function () {
     let number = num.value;
     let numberString = convertNumber(number);
-    alert(numberString);
     addNumberToDom(number, numberString)
   });
 }
