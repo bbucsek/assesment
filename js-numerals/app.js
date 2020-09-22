@@ -100,16 +100,16 @@ function hundreds(num) {
 
 function conversion(num) {
   if (num == 0) return "zero";
-  let c = 0;
+  let scale = 0;
   let wrd = "";
-  let h;
+  let remainder;
   while (num > 0) {
-    h = num % 1000;
-    if (h != 0) {
-      wrd = `${hundreds(h)} ${aboveHundred[c]} ${wrd}`;
+    remainder = num % 1000;
+    if (remainder != 0) {
+      wrd = `${hundreds(remainder)} ${aboveHundred[scale]} ${wrd}`;
     }
     num = parseInt(num / 1000);
-    c = c + 1;
+    scale = scale + 1;
   }
   return wrd.trim();
 }
