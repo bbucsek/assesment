@@ -45,19 +45,26 @@ const aboveHundred = {
   5: "quadrillion",
 };
 
-function app() {
+export default function main() {
   const num = document.querySelector(".input-number");
   const btn = document.querySelector(".btn");
 
   btn.addEventListener("click", function () {
     let number = num.value;
     let numberString = convertNumber(number);
-    console.log(numberString);
     alert(numberString);
+    addNumberToDom(number, numberString)
   });
 }
 
-export default function convertNumber(number) {
+function addNumberToDom(number, numberString) {
+  const container = document.querySelector(".container-number");
+  const newP = document.createElement("p");
+  newP.innerText = `${number} => ${numberString}`;
+  container.insertBefore(newP, container.firstChild);
+}
+
+function convertNumber(number) {
   let numberList = Array.from(number.toString()).map(Number);
   let writtenNumber;
   if (number < 10000 && number > 1000 && numberList[1] != 0) {
@@ -103,4 +110,3 @@ function conversion(num) {
   }
   return wrd.trim();
 }
-

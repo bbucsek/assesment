@@ -1,5 +1,7 @@
 import convertNumber from '../app'
 
+//simple tests
+
 test('10 to be equal to: ten', () => {
   expect(convertNumber(10)).toBe("ten"); 
 });
