@@ -51,6 +51,10 @@ export default function main() {
 
   btn.addEventListener("click", function () {
     let number = num.value;
+    if (number >= 9999999999999999) {
+      alert("please add smaller number")
+      return
+    }
     let numberString = convertNumber(number);
     addNumberToDom(number, numberString)
   });
