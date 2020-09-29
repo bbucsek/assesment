@@ -8,7 +8,7 @@ export const ProjectProvider = (props) => {
   const [currentUsers, setCurrentUser] = useState([]);
   const [page, setPage] = useState({
     start: 0,
-    last: 10,
+    end: 10,
   });
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export const ProjectProvider = (props) => {
       let data = await getUsers();
       setUsers(data);
       let startingUsers = []
-      for (let i = page.start; i < page.last; i++) {
+      for (let i = page.start; i < page.end; i++) {
         startingUsers.push(data[i])
       }
       setCurrentUser(startingUsers)
@@ -30,6 +30,9 @@ export const ProjectProvider = (props) => {
     <ProjectContext.Provider
       value={{
         currentUsers,
+        users,
+        page,
+        
       }}
     >
       {props.children}
