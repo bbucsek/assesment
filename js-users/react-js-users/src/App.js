@@ -5,17 +5,19 @@ import Sidebar from "./Components/Sidebar";
 import List from "./Components/List";
 import New from "./Components/New";
 import Edit from "./Components/Edit";
-
+import { ProjectProvider } from "./Context/ProjectContext";
 
 function App() {
   return (
     <div className="app">
       <div className="app-body">
         <Router>
-          <Sidebar />
-          <Route exact path="/new" component={New}/>
-          <Route exact path="/edit" component={Edit}/>
-          <Route exact path="/" component={List}/>
+          <ProjectProvider>
+            <Sidebar />
+            <Route exact path="/new" component={New} />
+            <Route exact path="/edit" component={Edit} />
+            <Route exact path="/" component={List} />
+          </ProjectProvider>
         </Router>
       </div>
     </div>
