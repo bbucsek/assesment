@@ -1,3 +1,7 @@
+# Start this application as server, for example "python3 -m http.server 8080"
+
+# Test with "npm test" command
+
 # JavaScript/Front-end Developer - Exercise 1
 
 ## Instructions
@@ -14,6 +18,7 @@ Create an application that contains a web form, which has a numeric input field 
 When the user gives an arabic number, the system shows the english phrase of that number.
 
 For example:
+
 <pre>
 7    == seven
 42   == forty-two
