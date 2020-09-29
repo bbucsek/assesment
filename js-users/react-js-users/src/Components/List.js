@@ -1,19 +1,19 @@
-import React, { useContext } from 'react'
-import '../Components/List.css'
-import { ProjectContext } from '../Context/ProjectContext'
-import User from '../Components/User'
+import React, { useContext, useState, useEffect } from "react";
+import "../Components/List.css";
+import { ProjectContext } from "../Context/ProjectContext";
+import User from "../Components/User";
 
 function List() {
 
-    const { users } = useContext(ProjectContext);
+  const { currentUsers } = useContext(ProjectContext);
 
-    return (
-        <div className="list">
-            {users?.map(user => 
-                <User key={user.id} user={user}/>
-                )}
-        </div>
-    )
+  return (
+    <div className="list">
+      {currentUsers?.map((user) => (
+        <User key={user.id} user={user} />
+      ))}
+    </div>
+  );
 }
 
-export default List
+export default List;
