@@ -15,16 +15,14 @@ export const ProjectProvider = (props) => {
     async function fetchUsers() {
       let data = await getUsers();
       setUsers(data);
-      let startingUsers = []
+      let startingUsers = [];
       for (let i = page.start; i < page.end; i++) {
-        startingUsers.push(data[i])
+        startingUsers.push(data[i]);
       }
-      setCurrentUser(startingUsers)
+      setCurrentUser(startingUsers);
     }
     fetchUsers();
   }, []);
-
- 
 
   return (
     <ProjectContext.Provider
@@ -32,7 +30,8 @@ export const ProjectProvider = (props) => {
         currentUsers,
         users,
         page,
-        
+        setPage,
+        setCurrentUser,
       }}
     >
       {props.children}

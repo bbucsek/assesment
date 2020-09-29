@@ -5,15 +5,38 @@ import User from "../Components/User";
 import Button from "@material-ui/core/Button";
 
 function List() {
-
-  const { currentUsers, users, page } = useContext(ProjectContext);
+  const { currentUsers, users, page, setPage, setCurrentUser } = useContext(
+    ProjectContext
+  );
 
   const btnPreviousDisabled = () => {
-      return page.start === 0 ? true : false;
+    return page.start === 0 ? true : false;
   };
 
   const btnNextDisabled = () => {
-    return page.last !== users?.length ? false : true;
+    return page.end !== users?.length ? false : true;
+  };
+
+  useEffect(() => {
+    let nextUsers = [];
+    for (let i = page.start; i < page.end; i++) {
+      nextUsers.push(users[i]);
+    }
+    console.log(page)
+  }, [page]);
+
+  const nextPage = () => {
+    setPage({
+      start: page.start + 10 >= page.end - 10 ? page.end -10: page.start + 10,
+      end: page.end + 10 >= users.length ? users.length : page.end + 10,
+    });
+  };
+
+  const previousPage = () => {
+    setPage({
+      start: page.start - 10 <= 0 ? 0 : page.start -10,
+      end: page.end - 10,
+    });
   };
 
   return (
@@ -24,10 +47,20 @@ function List() {
         ))}
       </div>
       <div className="list-buttons">
-        <Button disabled={btnPreviousDisabled()} variant="contained" color="primary">
+        <Button
+          disabled={btnPreviousDisabled()}
+          variant="contained"
+          color="primary"
+          onClick={previousPage}
+        >
           Previous
         </Button>
-        <Button disabled={btnNextDisabled()} variant="contained" color="primary">
+        <Button
+          disabled={btnNextDisabled()}
+          variant="contained"
+          color="primary"
+          onClick={nextPage}
+        >
           Next
         </Button>
       </div>
