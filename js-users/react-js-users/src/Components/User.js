@@ -1,17 +1,25 @@
 import React from "react";
 import "../Components/User.css";
-import BlockIcon from '@material-ui/icons/Block';
-import {Avatar} from "@material-ui/core";
+import BlockIcon from "@material-ui/icons/Block";
+import { Avatar } from "@material-ui/core";
+import { setStatus } from "../Api/ApiCalls";
 
-function User({ user }) {
+function User({ user, status }) {
+
+  const handleStatis = () => {
+    setStatus(user);
+  }
+
   return (
-    <div className="user-body">
+    <div className={`${status} user-body`}>
       <Avatar src={`https://avatars.dicebear.com/api/human/${user.id}.svg`} />
-      <div className="user-name">
-        {`First name: ${user.first_name} Last name: ${user.last_name}`}
-        <span className="user-created-at">{new Date(user.created_at).toDateString()}</span>
+      <div className="user-info">
+        {`${user.first_name} ${user.last_name}`}
+        <div className="user-created-at">
+          {`Created at ${new Date(user.created_at).toDateString()}`}
+        </div>
       </div>
-      <BlockIcon />
+      <BlockIcon onClick={handleStatis} className={status} />
     </div>
   );
 }

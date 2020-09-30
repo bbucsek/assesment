@@ -3,7 +3,7 @@ import "../Components/New.css"
 
 function New() {
     return (
-        <div>
+        <div className="new">
             new
         </div>
     )

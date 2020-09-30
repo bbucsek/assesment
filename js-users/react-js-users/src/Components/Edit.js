@@ -3,7 +3,7 @@ import '../Components/Edit.css'
 
 function Edit() {
     return (
-        <div>
+        <div className="edit">
             edit
         </div>
     )

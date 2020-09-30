@@ -7,19 +7,47 @@
   margin: 12px 36px 12px 36px;
   box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.3);
   transition: transform 450ms;
+  align-items: center;
 }
 
-.user-body:hover,
-.user-body:active {
+.user-body.locked {
+  cursor: not-allowed;
+  background-color: #ededed;
+}
+
+.user-body.active:hover,
+.user-body.active:active {
   box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.7);
-  cursor: pointer;
   transform: scale(1.04);
-
 }
 
-.user-name {
+.user-info {
+  display: flex;
   margin-left: 20px;
 }
 
 .user-created-at {
+  margin-left: 50px;
+}
+
+.user-body > .MuiSvgIcon-root {
+  margin-left: auto;
+  
+}
+
+.user-body > .MuiSvgIcon-root:hover,
+.user-body > .MuiSvgIcon-root:active {
+  cursor: pointer;
+  transition: color 100ms ease-in;
+  color: red;
+}
+
+.user-body.locked > .MuiSvgIcon-root:hover,
+.user-body.locked > .MuiSvgIcon-root:active {
+  cursor: pointer;
+  color: black;
+}
+
+.user-body > .MuiSvgIcon-root.locked {
+  color: red;
 }
