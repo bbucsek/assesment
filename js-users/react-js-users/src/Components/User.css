@@ -3,19 +3,22 @@
   padding: 12px;
   background-color: white;
   border-radius: 12px;
-  margin: 12px;
   overflow-x: hidden;
+  margin: 12px 36px 12px 36px;
   box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.3);
+  transition: transform 450ms;
 }
 
 .user-body:hover,
 .user-body:active {
   box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.7);
   cursor: pointer;
+  transform: scale(1.04);
+
 }
 
 .user-name {
-  margin-left: 105px;
+  margin-left: 20px;
 }
 
 .user-created-at {
