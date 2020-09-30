@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Sidebar from "./Components/Sidebar";
+import Navbar from "./Components/Navbar";
 import List from "./Components/List";
 import New from "./Components/New";
 import Edit from "./Components/Edit";
@@ -13,7 +13,7 @@ function App() {
       <div className="app-body">
         <Router>
           <ProjectProvider>
-            <Sidebar />
+            <Navbar />
             <Route exact path="/new" component={New} />
             <Route exact path="/edit" component={Edit} />
             <Route exact path="/" component={List} />

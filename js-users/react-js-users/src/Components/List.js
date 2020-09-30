@@ -27,7 +27,7 @@ function List() {
 
   const nextPage = () => {
     setPage({
-      start: page.start + 10 >= page.end - 10 ? page.end -10: page.start + 10,
+      start: page.start + 10 >= users.length - 10 ? page.end -10: page.start + 10,
       end: page.end + 10 >= users.length ? users.length : page.end + 10,
     });
   };
