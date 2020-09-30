@@ -3,4 +3,10 @@
     flex-direction: column;
     flex: 0.8;
     overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.list::-webkit-scrollbar {
+    display: none;
 }

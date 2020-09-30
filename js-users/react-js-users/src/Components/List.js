@@ -42,7 +42,7 @@ function List() {
   return (
     <div className="list">
       <div className="list-userlist">
-        {currentUsers?.map((user) => (
+        {users?.map((user) => (
           <User key={user.id} user={user} />
         ))}
       </div>

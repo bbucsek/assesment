@@ -5,6 +5,7 @@ import Navbar from "./Components/Navbar";
 import List from "./Components/List";
 import New from "./Components/New";
 import Edit from "./Components/Edit";
+import Footer from "./Components/Footer"
 import { ProjectProvider } from "./Context/ProjectContext";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
             <Route exact path="/new" component={New} />
             <Route exact path="/edit" component={Edit} />
             <Route exact path="/" component={List} />
+            <Footer />
           </ProjectProvider>
         </Router>
       </div>

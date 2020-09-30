@@ -1,16 +1,27 @@
+body {
+  --app-light-blue: #A8DADC;
+  --app-blue: #457B9D;
+  --app-dark-blue: #1D3557;
+  --app-red: #E63946;
+  --app-white: #F1FAEE;
+}
+
 .app {
   display: grid;
   place-items: center;
-  background-color: #dadbd3;
+  background-color: #DCD9D4;
+ background-image: linear-gradient(to bottom, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%), radial-gradient(at 50% 0%, rgba(255,255,255,0.10) 0%, rgba(0,0,0,0.50) 50%);
+ background-blend-mode: soft-light,screen;
   height: 100vh;
 }
 
 .app-body {
   display: flex;
   flex-direction: column;
-  background-color: #ededed;
-  height: 95vh;
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  height: 100vh;
   width: 75vw;
   box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.7);
+  
 
 }
