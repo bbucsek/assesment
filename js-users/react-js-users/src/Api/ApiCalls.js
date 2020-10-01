@@ -16,3 +16,7 @@ export async function createNewUser(user) {
   let response = axios.post(API_URL + ".json", user)
   return response;
 }
+
+export async function editUser(user) {
+  axios.put(user.url, user)
+}

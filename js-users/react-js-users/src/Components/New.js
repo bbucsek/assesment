@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../Components/New.css";
 import TextField from "@material-ui/core/TextField";
 import { createNewUser } from "../Api/ApiCalls";
@@ -16,13 +16,18 @@ function New() {
   const [lastName, setLastName] = useState();
   const history = useHistory();
 
+  const [avatar, setAvatar] = useState();
+
+    useEffect(() => {
+        setAvatar(Math.floor(Math.random() * 5000));
+    }, []);
+
   const handleCreate = () => {
     let newUser = {
       first_name: firstName,
       last_name: lastName,
       status: status,
     };
-    console.log(newUser);
     createNewUser(newUser)  
     history.push("/edit")
   };
@@ -30,7 +35,7 @@ function New() {
   return (
     <div className="new">
       <div className="new-form">
-        <img src={`https://avatars.dicebear.com/api/human/${1}.svg`} />
+        <img src={`https://avatars.dicebear.com/api/human/${avatar}.svg`} />
         <TextField
           error={error}
           onChange={(e) => setFirstName(e.target.value)}

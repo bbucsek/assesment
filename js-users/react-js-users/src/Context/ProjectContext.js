@@ -24,6 +24,10 @@ export const ProjectProvider = (props) => {
     fetchUsers();
   }, []);
 
+  const searchUser = (id) => {
+    return users.find(user => user.id == id)
+  }
+
   return (
     <ProjectContext.Provider
       value={{
@@ -32,6 +36,7 @@ export const ProjectProvider = (props) => {
         page,
         setPage,
         setCurrentUser,
+        searchUser,
       }}
     >
       {props.children}

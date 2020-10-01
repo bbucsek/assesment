@@ -16,7 +16,7 @@ function App() {
           <ProjectProvider>
             <Navbar />
             <Route exact path="/new" component={New} />
-            <Route exact path="/edit" component={Edit} />
+            <Route exact path="/edit/:id" component={Edit} />
             <Route exact path="/" component={List} />
             <Footer />
           </ProjectProvider>

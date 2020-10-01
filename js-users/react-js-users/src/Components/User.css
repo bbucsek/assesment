@@ -8,6 +8,7 @@
   box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.3);
   transition: transform 450ms;
   align-items: center;
+  cursor: pointer;
 }
 
 .user-body.locked {
@@ -37,7 +38,6 @@
 
 .user-body > .MuiSvgIcon-root:hover,
 .user-body > .MuiSvgIcon-root:active {
-  cursor: pointer;
   transition: color 100ms ease-in;
   color: red;
 }
