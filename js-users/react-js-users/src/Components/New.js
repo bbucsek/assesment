@@ -23,6 +23,7 @@ function New() {
       status: status,
     };
     console.log(newUser);
+    createNewUser(newUser)  
     history.push("/edit")
   };
 

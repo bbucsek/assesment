@@ -13,8 +13,6 @@ export async function changeStatus(user) {
 }
 
 export async function createNewUser(user) {
-  let response = axios.post(API_URL, user, {
-    headers: {"Access-Control-Allow-Origin": "*"}
-  })
+  let response = axios.post(API_URL + ".json", user)
   return response;
 }
