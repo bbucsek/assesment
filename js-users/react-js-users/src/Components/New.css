@@ -1,4 +1,30 @@
 .new {
     display: flex;
     flex: 0.8;
+    justify-content: center;
+    margin-top: 32px;
 }
+
+.new-form {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.new-form > img {
+    width: 60%;
+    align-self: center;
+    margin-bottom: 16px;
+}
+
+.MuiSelect-select {
+    background-color: inherit !important;
+}
+
+.MuiFormLabel-root {
+    color:  rgb(110, 94, 254) !important;
+}
+
+
+/*MuiSelect-root MuiSelect-select MuiInputBase-input MuiInput-input legördülő*/
+/*MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated Mui-disabled Mui-disabled*/

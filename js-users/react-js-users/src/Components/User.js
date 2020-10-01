@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "../Components/User.css";
 import BlockIcon from "@material-ui/icons/Block";
 import { Avatar } from "@material-ui/core";
-import { setStatus } from "../Api/ApiCalls";
+import { changeStatus } from "../Api/ApiCalls";
 
-function User({ user, status }) {
+function User({ user }) {
+  const [status, setStatus] = useState(user.status);
 
-  const handleStatis = () => {
-    setStatus(user);
-  }
+  const handleStatus = () => {
+    let newStatus = user.status === "active" ? "locked" : "active";
+    user.status = newStatus;
+    setStatus(newStatus);
+    changeStatus(user);
+  };
 
   return (
     <div className={`${status} user-body`}>
@@ -19,7 +23,7 @@ function User({ user, status }) {
           {`Created at ${new Date(user.created_at).toDateString()}`}
         </div>
       </div>
-      <BlockIcon onClick={handleStatis} className={status} />
+      <BlockIcon onClick={handleStatus} className={status} />
     </div>
   );
 }

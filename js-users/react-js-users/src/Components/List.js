@@ -43,7 +43,7 @@ function List() {
     <div className="list">
       <div className="list-userlist">
         {users?.map((user) => (
-          <User key={user.id} user={user} status={user.status}/>
+          <User key={user.id} user={user}/>
         ))}
       </div>
       <div className="list-buttons">
