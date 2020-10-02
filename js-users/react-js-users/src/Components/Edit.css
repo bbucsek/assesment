@@ -3,12 +3,23 @@
     flex: 0.8;
     justify-content: center;
     margin-top: 32px;
+    overflow: scroll;
 }
 
 .edit-form {
     display: flex;
     flex-direction: column;
     width: 30%;
+}
+
+.edit-form > .MuiButtonBase-root {
+    margin-top: 18px;
+}
+
+.edit-form > h2 {
+    align-self: center;
+    margin-bottom: 18px;
+    color: rgb(73, 63, 252);
 }
 
 .edit-form > img {

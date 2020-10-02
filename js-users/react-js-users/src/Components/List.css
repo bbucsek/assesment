@@ -7,6 +7,28 @@
     scrollbar-width: none;
 }
 
+.list-buttons {
+    display: flex;
+    margin: 12px 36px 12px 36px;
+
+}
+
+.list-buttons > .MuiButtonBase-root {
+    margin-right: 12px;
+}
 .list::-webkit-scrollbar {
     display: none;
+}
+
+.list-loading {
+    display: flex;
+    flex: 0.8;
+}
+
+.list-loading > .MuiCircularProgress-root {
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px !important;
+    height: 100px !important;
 }

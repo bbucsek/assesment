@@ -15,6 +15,7 @@ export const ProjectProvider = (props) => {
     async function fetchUsers() {
       let data = await getUsers();
       setUsers(data);
+      console.log(data)
     }
     fetchUsers();
   }, []);

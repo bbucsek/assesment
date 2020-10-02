@@ -4,18 +4,21 @@ import { ProjectContext } from "../Context/ProjectContext";
 import User from "../Components/User";
 import Button from "@material-ui/core/Button";
 import { VerifiedUserSharp } from "@material-ui/icons";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 function List() {
   const { users, page, setPage, currentUsers, setCurrentUsers } = useContext(
     ProjectContext
   );
+  const [progress] = useState(10);
+
 
   const btnPreviousDisabled = () => {
     return page.start === 0 ? true : false;
   };
 
   const btnNextDisabled = () => {
-    return page.end !== users?.length ? false : true;
+    return page.end === users?.length ? true : false;
   };
 
 /*   useEffect(() => {
@@ -31,6 +34,7 @@ function List() {
 
   useEffect(() => {
     if (currentUsers) {
+      console.log(page)
       let nextUsers = [];
       for (let i = page.start; i < page.end; i++) {
         nextUsers.push(users[i]);
@@ -41,26 +45,30 @@ function List() {
 
 
   const nextPage = () => {
+    let start = page.start + 10 >= users.length - 10 ? users.length -10 : page.start + 10;
+    let end = page.end + 10 >= users.length ? users.length : page.end + 10;
     setPage({
-      start: page.start + 10 >= users.length - 10 ? page.end -10: page.start + 10,
-      end: page.end + 10 >= users.length ? users.length : page.end + 10,
+      start: start,
+      end: end,
     });
-    let nextUsers = [];
-    for (let i = page.start; i < page.end; i++) {
-      nextUsers.push(users[i]);
-    }
-    setCurrentUsers(nextUsers)
+    
   };
 
   const previousPage = () => {
+    let start = page.start - 10 <= 0 ? 0 : page.start -10;
+    let end = page.end - 10 < 10 ? 10 : page.end - 10;
     setPage({
-      start: page.start - 10 <= 0 ? 0 : page.start -10,
-      end: page.end - 10,
+      start: start,
+      end: end,
     });
   };
 
   if (!currentUsers) {
-    return <h2>loading</h2>
+    return (
+      <div className="list-loading">
+        <CircularProgress />
+      </div>
+    )
   }
 
   return (

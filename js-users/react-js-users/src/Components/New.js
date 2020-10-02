@@ -35,6 +35,7 @@ function New() {
   return (
     <div className="new">
       <div className="new-form">
+        <h2>Create new user</h2>
         <img src={`https://avatars.dicebear.com/api/human/${avatar}.svg`} />
         <TextField
           error={error}

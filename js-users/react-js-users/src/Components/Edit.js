@@ -3,7 +3,7 @@ import "../Components/Edit.css";
 import TextField from "@material-ui/core/TextField";
 import { editUser } from "../Api/ApiCalls";
 import Button from "@material-ui/core/Button";
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import { ProjectContext } from "../Context/ProjectContext"
 
 function Edit() {
@@ -12,6 +12,7 @@ function Edit() {
   const [error, setError] = useState();
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
+  const history = useHistory();
 
   const { searchUser } = useContext(ProjectContext);
 
@@ -29,6 +30,7 @@ function Edit() {
     user.last_name = lastName
     console.log(user)
     editUser(user)
+    history.push("/")
 
   }
 
@@ -39,6 +41,7 @@ function Edit() {
   return (
     <div className="edit">
       <div className="edit-form">
+        <h2>Edit User</h2>
         <img src={`https://avatars.dicebear.com/api/human/${user.id}.svg`} />
         <TextField
           error={error}

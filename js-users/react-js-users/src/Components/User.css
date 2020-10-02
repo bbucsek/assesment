@@ -13,6 +13,7 @@
 .user-body.locked {
   cursor: not-allowed;
   background-color: #ededed;
+  text-decoration: line-through;
 }
 
 .user-body.active:hover,
