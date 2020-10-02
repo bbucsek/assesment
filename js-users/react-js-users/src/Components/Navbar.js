@@ -10,7 +10,6 @@ function Sidebar() {
         <div className="navbar">
             <h2 onClick={e =>history.push("/")}>List</h2>
             <h2 onClick={e => history.push("/new")}>New</h2>
-            <h2 onClick={e => history.push("/edit")}>Edit</h2>
         </div>
     )
 }
