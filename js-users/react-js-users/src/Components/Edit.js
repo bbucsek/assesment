@@ -5,6 +5,8 @@ import { editUser } from "../Api/ApiCalls";
 import Button from "@material-ui/core/Button";
 import { useParams, useHistory } from 'react-router-dom'
 import { ProjectContext } from "../Context/ProjectContext"
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 
 function Edit() {
   const { id } = useParams();
@@ -40,19 +42,20 @@ function Edit() {
       user.last_name = lastName
       history.push("/")
     }).catch((e) => {
-      setErrorText("Error! Please check the underlined fields!")
+      setErrorText("Please check the underlined fields. Make sure you are using a reasonable first/last name.")
       setFirstNameError(editedUser.first_name !== user.first_name ? true : false)
       setLastNameError(editedUser.last_name !== user.last_name ? true : false)
 
     })  
 
-    
-    
-
   }
 
   if (!user) {
-    return <div className="loading">loading....</div>;
+    return (
+      <div className="loading">
+        <CircularProgress />
+      </div>
+    );
   }
 
   return (
@@ -60,7 +63,7 @@ function Edit() {
       <div className="edit-form">
         <h2>Edit User</h2>
         <img src={`https://avatars.dicebear.com/api/human/${user.id}.svg`} />
-        {errorText && <div className="edit-error">{errorText}</div>}
+        {errorText && <div className="edit-errortext">{errorText}</div>}
         <TextField
           error={firstNameError}
           onChange={(e) => setFirstName(e.target.value)}

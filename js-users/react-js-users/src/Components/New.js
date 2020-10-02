@@ -9,9 +9,15 @@ import Select from "@material-ui/core/Select";
 import { useHistory } from 'react-router-dom'
 
 function New() {
+
   const [error, setError] = useState(false);
-  const [status, setStatus] = useState("active");
-  const [user, setUser] = useState();
+  const [errorText, setErrorText] = useState("");
+  const [errors, setErrors] = useState({
+      first_name: "",
+      last_name: "",
+      status: "",
+  });
+  const [status, setStatus] = useState();
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
   const history = useHistory();
@@ -22,14 +28,22 @@ function New() {
         setAvatar(Math.floor(Math.random() * 5000));
     }, []);
 
-  const handleCreate = () => {
+  const handleCreate = async () => {
     let newUser = {
       first_name: firstName,
       last_name: lastName,
       status: status,
     };
-    createNewUser(newUser)  
-    history.push("/")
+    let res = await createNewUser(newUser)
+    if (res.status === 201) history.push("/")
+    if (!res) {
+      setErrorText("Error! Please make sure you are using a reasonable first/last name")
+    }
+    setErrors({...errors, 
+      first_name: res.first_name,
+      last_name: res.last_name,
+      status: res.status,
+    })
   };
 
   return (
@@ -37,18 +51,20 @@ function New() {
       <div className="new-form">
         <h2>Create new user</h2>
         <img src={`https://avatars.dicebear.com/api/human/${avatar}.svg`} />
+        {errorText && <div className="new-errortext">{errorText}</div>}
         <TextField
           error={error}
           onChange={(e) => setFirstName(e.target.value)}
           id="standard-basic"
           label="First name"
+          helperText={errors.first_name}
         />
         <TextField
           onChange={(e) => setLastName(e.target.value)}
           error={error}
           id="standard-basic"
           label="Last name"
-          helperText={error.text}
+          helperText={errors.last_name}
         />
         <FormControl className="form">
           <InputLabel htmlFor="age-native-simple" disabled>
@@ -62,6 +78,7 @@ function New() {
             <option value={"locked"}>locked</option>
           </Select>
         </FormControl>
+        {errors.status && <div className="new-field-errortext">{errors.status}</div>}
         <Button variant="contained" color="primary" onClick={handleCreate}>
           Create
         </Button>

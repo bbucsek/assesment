@@ -65,7 +65,7 @@ function List() {
 
   if (!currentUsers) {
     return (
-      <div className="list-loading">
+      <div className="loading">
         <CircularProgress />
       </div>
     )

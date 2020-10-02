@@ -10,7 +10,6 @@
     display: flex;
     flex-direction: column;
     width: 30%;
-    
 }
 
 .new-form > .MuiButtonBase-root {
@@ -27,6 +26,29 @@
     width: 60%;
     align-self: center;
     margin-bottom: 16px;
+}
+
+.new-errortext {
+    color: red;
+    align-self: center;
+    margin: 18px 0 18px 0;
+}
+
+.new-field-errortext {
+    color: red;
+    margin: 8px 0 8px 0;
+    font-size: 0.75rem;
+}
+
+.MuiFormHelperText-root {
+    color: red !important;
+    font-family: Montserrat !important;
+}
+
+
+
+.new-form-fields {
+    display: flex;
 }
 
 .MuiSelect-select {

@@ -12,16 +12,18 @@ export async function changeStatus(user) {
 }
 
 export async function createNewUser(user) {
-  let response = axios.post(API_URL + ".json", user)
-  return response;
+  try {
+    let res = await axios.post(API_URL + ".json", user)
+    return res;
+  } catch (err) {
+    if (err.response) {
+      return err.response.data;
+    }
+    return false;
+  }
 }
 
 export async function editUser(user) {
   let response = await axios.put(user.url, user)
-  if (response) {
-    console.log("siker")
-    return true
-  }
-  console.log("nem siker")
-  return false
+  return response.data;
 }
