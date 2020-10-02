@@ -3,9 +3,10 @@ import "../Components/List.css";
 import { ProjectContext } from "../Context/ProjectContext";
 import User from "../Components/User";
 import Button from "@material-ui/core/Button";
+import { VerifiedUserSharp } from "@material-ui/icons";
 
 function List() {
-  const { currentUsers, users, page, setPage, setCurrentUser } = useContext(
+  const { users, page, setPage, currentUsers, setCurrentUsers } = useContext(
     ProjectContext
   );
 
@@ -17,19 +18,38 @@ function List() {
     return page.end !== users?.length ? false : true;
   };
 
-  useEffect(() => {
-    let nextUsers = [];
-    for (let i = page.start; i < page.end; i++) {
-      nextUsers.push(users[i]);
+/*   useEffect(() => {
+    async function fetchUsers() {
+      let nextUsers = [];
+      for (let i = page.start; i < page.end; i++) {
+        nextUsers.push(users[i]);
+      }
+      setCurrentUsers(nextUsers)
     }
-    console.log(page)
-  }, [page]);
+    fetchUsers();
+  }, [users]); */
+
+  useEffect(() => {
+    if (currentUsers) {
+      let nextUsers = [];
+      for (let i = page.start; i < page.end; i++) {
+        nextUsers.push(users[i]);
+    }
+    setCurrentUsers(nextUsers)
+    }
+  }, [page])
+
 
   const nextPage = () => {
     setPage({
       start: page.start + 10 >= users.length - 10 ? page.end -10: page.start + 10,
       end: page.end + 10 >= users.length ? users.length : page.end + 10,
     });
+    let nextUsers = [];
+    for (let i = page.start; i < page.end; i++) {
+      nextUsers.push(users[i]);
+    }
+    setCurrentUsers(nextUsers)
   };
 
   const previousPage = () => {
@@ -39,10 +59,14 @@ function List() {
     });
   };
 
+  if (!currentUsers) {
+    return <h2>loading</h2>
+  }
+
   return (
     <div className="list">
       <div className="list-userlist">
-        {users?.map((user) => (
+        {currentUsers?.map((user) => (
           <User key={user.id} user={user}/>
         ))}
       </div>

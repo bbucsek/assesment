@@ -5,7 +5,7 @@ export const ProjectContext = createContext();
 
 export const ProjectProvider = (props) => {
   const [users, setUsers] = useState([]);
-  const [currentUsers, setCurrentUser] = useState([]);
+  const [currentUsers, setCurrentUsers] = useState()
   const [page, setPage] = useState({
     start: 0,
     end: 10,
@@ -15,15 +15,21 @@ export const ProjectProvider = (props) => {
     async function fetchUsers() {
       let data = await getUsers();
       setUsers(data);
-      let startingUsers = [];
-      for (let i = page.start; i < page.end; i++) {
-        startingUsers.push(data[i]);
-      }
-      setCurrentUser(startingUsers);
     }
     fetchUsers();
   }, []);
 
+  useEffect(() => {
+    if (users.length > 0) {
+      let nextUsers = [];
+      for (let i = page.start; i < page.end; i++) {
+        nextUsers.push(users[i]);
+      }
+      setCurrentUsers(nextUsers)
+    }
+  }, [users])
+
+  
   const searchUser = (id) => {
     return users.find(user => user.id == id)
   }
@@ -31,12 +37,12 @@ export const ProjectProvider = (props) => {
   return (
     <ProjectContext.Provider
       value={{
-        currentUsers,
         users,
         page,
         setPage,
-        setCurrentUser,
         searchUser,
+        currentUsers,
+        setCurrentUsers,
       }}
     >
       {props.children}

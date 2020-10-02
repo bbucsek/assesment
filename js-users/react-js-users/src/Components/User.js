@@ -17,6 +17,7 @@ function User({ user }) {
   };
 
   const editUser = () => {
+    if (status === "locked") return
     history.push(`/edit/${user.id}`);
   };
 
