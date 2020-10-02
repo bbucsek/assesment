@@ -29,7 +29,7 @@ function New() {
       status: status,
     };
     createNewUser(newUser)  
-    history.push("/edit")
+    history.push("/")
   };
 
   return (

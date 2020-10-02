@@ -11,7 +11,7 @@ function List() {
     ProjectContext
   );
   const [progress] = useState(10);
-
+  const [resultPerPage] = useState(10);
 
   const btnPreviousDisabled = () => {
     return page.start === 0 ? true : false;
@@ -45,8 +45,8 @@ function List() {
 
 
   const nextPage = () => {
-    let start = page.start + 10 >= users.length - 10 ? users.length -10 : page.start + 10;
-    let end = page.end + 10 >= users.length ? users.length : page.end + 10;
+    let start = page.start + resultPerPage;
+    let end = page.end + resultPerPage >= users.length ? users.length : page.end + resultPerPage;
     setPage({
       start: start,
       end: end,
@@ -55,8 +55,8 @@ function List() {
   };
 
   const previousPage = () => {
-    let start = page.start - 10 <= 0 ? 0 : page.start -10;
-    let end = page.end - 10 < 10 ? 10 : page.end - 10;
+    let start = page.start - resultPerPage <= 0 ? 0 : page.start -resultPerPage;
+    let end = page.start;
     setPage({
       start: start,
       end: end,
