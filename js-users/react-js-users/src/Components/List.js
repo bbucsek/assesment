@@ -7,11 +7,11 @@ import { VerifiedUserSharp } from "@material-ui/icons";
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 function List() {
-  const { users, page, setPage, currentUsers, setCurrentUsers } = useContext(
+  const { users, page, setPage } = useContext(
     ProjectContext
   );
-  const [progress] = useState(10);
   const [resultPerPage] = useState(10);
+  const [currentUsers, setCurrentUsers] = useState();
 
   const btnPreviousDisabled = () => {
     return page.start === 0 ? true : false;
@@ -21,16 +21,15 @@ function List() {
     return page.end === users?.length ? true : false;
   };
 
-/*   useEffect(() => {
-    async function fetchUsers() {
+  useEffect(() => {
+    if (users.length > 0) {
       let nextUsers = [];
       for (let i = page.start; i < page.end; i++) {
         nextUsers.push(users[i]);
       }
       setCurrentUsers(nextUsers)
     }
-    fetchUsers();
-  }, [users]); */
+  }, [users])
 
   useEffect(() => {
     if (currentUsers) {

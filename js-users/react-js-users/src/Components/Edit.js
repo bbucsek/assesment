@@ -45,9 +45,7 @@ function Edit() {
       setErrorText("Please check the underlined fields. Make sure you are using a reasonable first/last name.")
       setFirstNameError(editedUser.first_name !== user.first_name ? true : false)
       setLastNameError(editedUser.last_name !== user.last_name ? true : false)
-
     })  
-
   }
 
   if (!user) {
