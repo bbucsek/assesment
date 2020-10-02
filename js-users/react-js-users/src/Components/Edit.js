@@ -18,6 +18,8 @@ function Edit() {
   useEffect(() => {
     let user = searchUser(id);
     setUser(user);
+    setFirstName(user.first_name)
+    setLastName(user.last_name)
     console.log(id);
     console.log(user);
   }, []);

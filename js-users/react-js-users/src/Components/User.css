@@ -8,7 +8,6 @@
   box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.3);
   transition: transform 450ms;
   align-items: center;
-  cursor: pointer;
 }
 
 .user-body.locked {
@@ -25,6 +24,11 @@
 .user-info {
   display: flex;
   margin-left: 20px;
+  cursor: pointer;
+}
+
+.user-info.locked {
+  cursor: not-allowed;
 }
 
 .user-created-at {
@@ -33,6 +37,7 @@
 
 .user-body > .MuiSvgIcon-root {
   margin-left: auto;
+  cursor: pointer;
   
 }
 
