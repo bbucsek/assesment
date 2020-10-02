@@ -1,0 +1,25 @@
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background: linear-gradient(
+    90deg,
+    rgb(110, 94, 254) 0%,
+    rgba(73, 63, 252) 100%
+  );
+  flex: 0.1;
+  align-items: center;
+  color: wheat;
+  margin-bottom: 12px;
+}
+
+.navbar > h2 {
+  cursor: pointer;
+}
+
+.navbar > h2:hover,
+.navbar > h2:active {
+
+    color: orange;
+
+}

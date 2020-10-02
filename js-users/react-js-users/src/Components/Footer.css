@@ -1,0 +1,18 @@
+.footer {
+  background: linear-gradient(
+    90deg,
+    rgb(110, 94, 254) 0%,
+    rgba(73, 63, 252) 100%
+  );
+  display: flex;
+  flex: 0.1;
+  justify-content: space-around;
+  flex-direction: row;
+  color: wheat;
+  margin-top: 6px;
+  font-size: 0.6rem;
+}
+
+.footer > h3 {
+  margin-top: 1.2rem;
+}
