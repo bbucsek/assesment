@@ -17,5 +17,11 @@ export async function createNewUser(user) {
 }
 
 export async function editUser(user) {
-  axios.put(user.url, user)
+  let response = await axios.put(user.url, user)
+  if (response) {
+    console.log("siker")
+    return true
+  }
+  console.log("nem siker")
+  return false
 }
