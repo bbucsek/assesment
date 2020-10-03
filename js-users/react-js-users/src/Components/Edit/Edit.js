@@ -60,7 +60,7 @@ function Edit() {
     <div className="edit">
       <div className="edit-form">
         <h2>Edit User</h2>
-        <img src={`https://avatars.dicebear.com/api/human/${user.id}.svg`} />
+        <img alt="avatar" src={`https://avatars.dicebear.com/api/human/${user.id}.svg`} />
         {errorText && <div className="edit-errortext">{errorText}</div>}
         <TextField
           error={firstNameError}

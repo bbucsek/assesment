@@ -1,9 +1,5 @@
 body {
-  --app-light-blue: #A8DADC;
-  --app-blue: #457B9D;
-  --app-dark-blue: #1D3557;
-  --app-red: #E63946;
-  --app-white: #F1FAEE;
+  --app-blue:rgb(73, 63, 252);
 }
 
 .app {

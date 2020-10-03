@@ -25,7 +25,7 @@ function User({ user }) {
     <div className={`${status} user-body`}>
       <Avatar src={`https://avatars.dicebear.com/api/human/${user.id}.svg`} />
       <div onClick={editUser} className={`user-info ${status}`}>
-        {`${user.first_name} ${user.last_name}`}
+        <p>{`${user.first_name} ${user.last_name}`}</p>
         <div  className="user-created-at">
           {`Created at ${new Date(user.created_at).toDateString()}`}
         </div>

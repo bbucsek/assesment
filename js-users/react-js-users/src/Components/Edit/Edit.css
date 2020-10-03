@@ -19,7 +19,7 @@
 .edit-form > h2 {
     align-self: center;
     margin-bottom: 18px;
-    color: rgb(73, 63, 252);
+    color: var(--app-blue);
 }
 
 .edit-form > img {

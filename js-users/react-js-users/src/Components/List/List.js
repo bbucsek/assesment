@@ -32,7 +32,6 @@ function List() {
 
   useEffect(() => {
     if (currentUsers) {
-      console.log(page)
       let nextUsers = [];
       for (let i = page.start; i < page.end; i++) {
         nextUsers.push(users[i]);
