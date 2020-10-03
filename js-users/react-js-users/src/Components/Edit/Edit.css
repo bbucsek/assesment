@@ -34,6 +34,13 @@
     margin: 18px 0 18px 0;
 }
 
+.MuiInputBase-input {
+    font-family: Montserrat !important;
+    color: var(--app-blue) !important;
+    font-weight: bold !important;
+}
+
+
 .loading {
     display: flex;
     flex: 0.8;

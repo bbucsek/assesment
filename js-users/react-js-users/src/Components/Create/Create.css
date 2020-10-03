@@ -59,6 +59,12 @@
     color:  var(--app-blue) !important;
 }
 
+.MuiInputBase-input {
+    font-family: Montserrat !important;
+    color: var(--app-blue) !important;
+    font-weight: bold !important;
+}
+
 
 /*MuiSelect-root MuiSelect-select MuiInputBase-input MuiInput-input legördülő*/
 /*MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated Mui-disabled Mui-disabled*/
