@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "../Components/User.css";
+import "../User/User.css";
 import BlockIcon from "@material-ui/icons/Block";
 import { Avatar } from "@material-ui/core";
-import { changeStatus } from "../Api/ApiCalls";
+import { changeStatus } from "../../../Api/ApiCalls";
 import { useHistory } from "react-router-dom";
 
 function User({ user }) {

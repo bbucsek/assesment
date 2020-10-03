@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import "../Components/New.css";
+import "../Create/Create.css";
 import TextField from "@material-ui/core/TextField";
-import { createNewUser } from "../Api/ApiCalls";
+import { createNewUser } from "../../Api/ApiCalls";
 import Button from "@material-ui/core/Button";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import { useHistory } from 'react-router-dom'
 
-function New() {
+function Create() {
 
   const [error, setError] = useState(false);
   const [errorText, setErrorText] = useState("");
@@ -50,7 +50,7 @@ function New() {
     <div className="new">
       <div className="new-form">
         <h2>Create new user</h2>
-        <img src={`https://avatars.dicebear.com/api/human/${avatar}.svg`} />
+        <img alt="avatar" src={`https://avatars.dicebear.com/api/human/${avatar}.svg`} />
         {errorText && <div className="new-errortext">{errorText}</div>}
         <TextField
           error={error}
@@ -87,4 +87,4 @@ function New() {
   );
 }
 
-export default New;
+export default Create;

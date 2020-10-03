@@ -1,9 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
-import "../Components/List.css";
-import { ProjectContext } from "../Context/ProjectContext";
-import User from "../Components/User";
+import "../List/List.css";
+import { ProjectContext } from "../../Context/ProjectContext";
+import User from "./User/User";
 import Button from "@material-ui/core/Button";
-import { VerifiedUserSharp } from "@material-ui/icons";
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 function List() {

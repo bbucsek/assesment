@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
-import "../Components/Edit.css";
+import "../Edit/Edit.css";
 import TextField from "@material-ui/core/TextField";
-import { editUser } from "../Api/ApiCalls";
+import { editUser } from "../../Api/ApiCalls";
 import Button from "@material-ui/core/Button";
 import { useParams, useHistory } from 'react-router-dom'
-import { ProjectContext } from "../Context/ProjectContext"
+import { ProjectContext } from "../../Context/ProjectContext"
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 
