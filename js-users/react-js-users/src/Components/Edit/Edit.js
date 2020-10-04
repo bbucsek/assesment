@@ -24,6 +24,7 @@ function Edit() {
   useEffect(() => {
     let user = searchUser(id);
     if (user === undefined) {
+      history.push("/")
       return
     }
     setUser(user);

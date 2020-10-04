@@ -6,11 +6,13 @@ import Button from "@material-ui/core/Button";
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 function List() {
-  const { users, page, setPage } = useContext(
-    ProjectContext
-  );
+  const { users } = useContext(ProjectContext);
   const [resultPerPage] = useState(10);
   const [currentUsers, setCurrentUsers] = useState();
+  const [page, setPage] = useState({
+    start: 0,
+    end: 10,
+  });
 
   const btnPreviousDisabled = () => {
     return page.start === 0 ? true : false;

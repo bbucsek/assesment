@@ -62,7 +62,7 @@
 .MuiInputBase-input {
     font-family: Montserrat !important;
     color: var(--app-blue) !important;
-    font-weight: bold !important;
+    font-weight: bold !;
 }
 
 

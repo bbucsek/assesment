@@ -5,16 +5,11 @@ export const ProjectContext = createContext();
 
 export const ProjectProvider = (props) => {
   const [users, setUsers] = useState([]);
-  const [page, setPage] = useState({
-    start: 0,
-    end: 10,
-  });
 
   useEffect(() => {
     async function fetchUsers() {
       let data = await getUsers();
       setUsers(data);
-      console.log(data)
     }
     fetchUsers();
   }, []);
@@ -27,8 +22,6 @@ export const ProjectProvider = (props) => {
     <ProjectContext.Provider
       value={{
         users,
-        page,
-        setPage,
         searchUser,
       }}
     >

@@ -10,7 +10,6 @@ import { useHistory } from 'react-router-dom'
 
 function Create() {
 
-  const [error, setError] = useState(false);
   const [errorText, setErrorText] = useState("");
   const [errors, setErrors] = useState({
       first_name: "",
@@ -53,7 +52,6 @@ function Create() {
         <img alt="avatar" src={`https://avatars.dicebear.com/api/human/${avatar}.svg`} />
         {errorText && <div className="new-errortext">{errorText}</div>}
         <TextField
-          error={error}
           onChange={(e) => setFirstName(e.target.value)}
           id="standard-basic"
           label="First name"
@@ -61,7 +59,6 @@ function Create() {
         />
         <TextField
           onChange={(e) => setLastName(e.target.value)}
-          error={error}
           id="standard-basic"
           label="Last name"
           helperText={errors.last_name}
@@ -72,7 +69,7 @@ function Create() {
           </InputLabel>
           <Select 
           native
-          onChange={e => setStatus(e.target.value)}>
+          onChange={(e) => setStatus(e.target.value)}>
             <option aria-label="None" value="" />
             <option value={"active"}>active</option>
             <option value={"locked"}>locked</option>

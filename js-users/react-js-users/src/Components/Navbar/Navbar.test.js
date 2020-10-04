@@ -16,7 +16,6 @@ describe("", () => {
   afterEach(cleanup)
 
   it("it renders", () => {
-    //console.log(wrapper.debug())
     expect(wrapper).not.toBeNull();
   });
 
